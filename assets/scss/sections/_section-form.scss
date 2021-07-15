@@ -1,0 +1,102 @@
+.form {
+    background-color: $color-primary;
+    padding: 30px 0;
+
+    &__container {
+        display: grid;
+        grid-gap: $gap;
+        @extend %container;
+
+        @include md-min {
+            grid-template-columns: repeat(3, 1fr);
+            
+        }
+        @include md-sm {
+
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            grid-template-areas: 'login login' 'email btn';   
+        }
+
+        @include sm {
+
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(3, 1fr);
+            grid-template-areas: 'login' 'email' 'btn';   
+        }
+    
+    }
+
+    &-item {
+        @include md {
+            &:nth-of-type(1) {
+                grid-area: login;
+            }
+            &:nth-of-type(2) {
+                grid-area: email;
+            }
+        }
+        
+        &__input {
+            display: block;
+            height: 60px;
+            width: 100%;
+            padding-left: 30px;
+            padding-right: 30px;
+            letter-spacing: 0.15em;
+            font-size: 1.125rem;
+    
+            color: $color-light;
+            outline:none;
+            border: 2px solid rgba($color-light, 0);
+            border-bottom-color: rgba($color-light, 0.25);
+            background-color: rgba($color-light, 0.05);
+            transition: background-color 0.5s, border-color 0.5s;
+            
+            &:hover, &:focus {
+                border-color: rgba($color-light, 0.15);
+                border-bottom-color: $color-light;
+                background-color: rgba($color-light, 0.15);
+    
+                &::placeholder {
+                    color: $color-gray-light;
+                }
+            } 
+    
+    
+            &::placeholder {
+                color: $color-gray;
+                transition: color 0.5s;
+            }
+    
+    
+        }
+        
+    } 
+
+    .btn--primary {
+        width: 100%;
+        min-height: 60px;
+        font-size: 1.125rem;
+        letter-spacing: 0.1em;
+    
+        color: $color-light;
+        border-color: rgba($color-light, 0);
+        border-bottom-color: rgba($color-light, 0.2);
+        background-color: rgba($color-light, 0.1);
+
+        transition: all 0.5s;
+
+        &:hover, &:focus {
+            cursor: pointer;
+            border-color: $color-light;
+            background-color: $color-accent;
+        }
+
+        @include md {
+            grid-area: btn;
+        }
+    }
+}
+
+

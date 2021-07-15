@@ -1,0 +1,20 @@
+%container {
+  max-width: 1340px;
+  margin: auto;
+  padding-right: $gap;
+  padding-left: $gap;
+}
+
+
+%section-padding {
+  @include lg-min{
+    padding: 100px 0 100px 0;
+  }
+
+  @include lg-md{
+      padding: 80px 0 80px 0;
+  }
+  @include md{
+      padding: 60px 0 60px 0;
+  }
+}
